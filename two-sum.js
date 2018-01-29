@@ -14,13 +14,16 @@ return [0, 1]
 var array = [3, 5, 2, 7, 3, 9, 4];
 
 function twoSum = (arr, target) {
+  // create a hash table to store the related other half remainder
   let hash = {};
   for (let i = 0; i < arr.length; i++) {
     let currNum  = arr[i];
     let otherHalf = target - arr[i];
+    // if other half remainder exist then give back the index that is saved and the current index
     if (hash[otherHalf] !== undefined) {
       return [hash[otherHalf], i];
     }else {
+      // but if no other half recorded in our hash then just save it for next iteration refrence
       hash[currNum] = i;
     }
   }
